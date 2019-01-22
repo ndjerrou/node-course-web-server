@@ -22,9 +22,10 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.render('maintenance.hbs')
-})
+    next();
+}) */
 
 app.use(express.static(__dirname + '/public'));
 
@@ -42,13 +43,13 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About page',
+        pageTitle: 'About page'
     })
 })
 
-app.get('/bad', (req, res) => {
-    res.send({
-        errorMessage: "Unable to understand your choice of navigation"
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'My Projects'
     })
 })
 
